@@ -7,7 +7,11 @@ import jakarta.inject.Inject;
 public class GreetingService2 {
 
     @Inject
-    private GreetingService1 greetingService1;
+    private final GreetingService1 greetingService1;
+
+    public GreetingService2(GreetingService1 greetingService1) {
+        this.greetingService1 = greetingService1;
+    }
 
     /**
      * Exception in GreetingService1.java:17
@@ -18,7 +22,7 @@ public class GreetingService2 {
      * 	  19  }
      */
     public String hello() {
-//        return greetingService1.hello();
-        return "greetingService1.hello()";
+        return greetingService1.hello();
+//        return "greetingService1.hello()";
     }
 }

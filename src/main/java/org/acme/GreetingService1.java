@@ -11,7 +11,11 @@ import jakarta.ws.rs.core.MediaType;
 public class GreetingService1 {
 
     @Inject
-    private GreetingService2 greetingService2;
+    private final GreetingService2 greetingService2;
+
+    public GreetingService1(GreetingService2 greetingService2) {
+        this.greetingService2 = greetingService2;
+    }
 
     public String hello() {
         return greetingService2.hello();
