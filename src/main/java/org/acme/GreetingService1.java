@@ -12,6 +12,7 @@ public class GreetingService1 {
 
     @Inject
     private GreetingService2 greetingService2;
+
     public String hello() {
         return greetingService2.hello();
     }
